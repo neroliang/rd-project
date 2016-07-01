@@ -39,6 +39,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry'
+  gem 'capybara'
+  gem 'capybara-screenshot'  
 end
 
 group :development do
