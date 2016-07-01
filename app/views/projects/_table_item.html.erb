@@ -1,0 +1,7 @@
+    <tr>
+      <td><%= project.id %></td>
+      <td><%= project.title %></td>
+      <td><%= link_to("Update", edit_project_path(project), class: "button") %></td>
+      <td><%= link_to("Delete", project, method: :delete, data: { confirm: "Are you sure?" }, class: "button") %></td>
+      <td><%= link_to("Show", project, class: "button") %></td>
+    </tr>

@@ -1,0 +1,30 @@
+<%= form_for(project, data: { 'abide': '' }, html: {'novalidate': '' }) do |f| %>
+
+<% if project.errors.any? %>
+   <div id="error_explanation" class="alert callout">
+     <ul>
+       <% project.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+     </ul>
+   </div>
+ <% end %>
+ 	<div>
+
+	<%= f.label :title %>
+	<%= f.text_field :title, placeholder: "name of your project", required: true %>
+	<span class="form-error">
+		This field is required.
+	</span>
+
+ 	</div>	
+ 	<div>
+ 		<%= f.label :description %>
+	    <%= f.text_area :description, placeholder: "Short summary of what your project is about", required: true %>
+	    <span class="form-error">
+			This field is required.
+		</span>
+	</div>
+
+    <%= f.button action, class: 'button' %>
+<% end %>
