@@ -7,8 +7,8 @@ FactoryGirl.define do
 	  end
 
 	  after(:build) do | job |
-	  	project = create(:project)
-	  	job.project_id = project.id
+	  	job.project = create(:project)
+      job.user = create(:user)
 	  end
   end
 end

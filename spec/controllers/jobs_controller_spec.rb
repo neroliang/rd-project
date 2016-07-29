@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe JobsController, type: :controller do
-
+  
   # This should return the minimal set of attributes required to create a valid
   # Job. As you add validations to Job, be sure to
   # adjust the attributes here as well.
@@ -32,6 +32,8 @@ RSpec.describe JobsController, type: :controller do
     job_object.attributes.merge(project_id: job_object.project_id)
   }
 
+
+
   let(:invalid_attributes) {
     attributes_for(:job, :invalid, status: :open)    
   }
@@ -39,7 +41,9 @@ RSpec.describe JobsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # JobsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) {
+    { user_id: create(:user).id }
+  }
 
   describe "GET #index" do
     it "assigns all jobs as @jobs" do

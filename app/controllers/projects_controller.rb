@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
-		
+		@project.user = current_user
 		if @project.save
 			flash[:success] =  "Your #{@project.title} has been saved"
 			redirect_to projects_url

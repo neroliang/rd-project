@@ -5,5 +5,10 @@ FactoryGirl.define do
     trait :invalid do
   	  title nil
     end
+
+    after(:build) do | project |
+      project.user = create(:user)
+    end
+
   end
 end

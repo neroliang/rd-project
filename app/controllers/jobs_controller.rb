@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
+    authorize @jobs
   end
 
   # GET /jobs/1
@@ -25,6 +26,8 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
+    @job.project = @project
+    @job.user = current_user
 
     respond_to do |format|
       if @job.save
